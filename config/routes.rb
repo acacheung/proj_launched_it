@@ -1,4 +1,7 @@
 ProjLaunchedIt::Application.routes.draw do
+  resources :props
+
+
   resources :comments
 
 
