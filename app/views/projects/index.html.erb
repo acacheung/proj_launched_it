@@ -14,14 +14,12 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.name %></td>
-    <td><%= project.url %></td>
-    <td><%= project.codebase_url %></td>
+    <td><%= link_to project.name, project %></td>
+    <td><%= link_to project.url, "http://#{project.url}" %></td>
+    <td><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></td>
     <td><%= project.description %></td>
     <td><%= project.contact_email %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'View Project', project %></td>
   </tr>
 <% end %>
 </table>
