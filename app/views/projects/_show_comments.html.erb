@@ -2,7 +2,11 @@
 
 <% @project.comments.each do |comment| %>
   <div>
-    <h3><%= comment.first_name + ' ' + comment.last_name + '(' + comment.email + ')' + ':' %></h3>
+    <h3>
+      <%= comment.first_name + ' ' + comment.last_name %>
+      <span class='comment-email'>(<%= mail_to(comment.email) %>)</span>
+    :
+    </h3>
     <p><%= comment.body %></p>
   </div>
 <% end %>
