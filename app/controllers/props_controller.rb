@@ -1,8 +1,10 @@
 class PropsController < ApplicationController
+  before_filter :load_project
+
   # GET /props
   # GET /props.json
   def index
-    @props = Prop.all
+    @props = @project.props.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class PropsController < ApplicationController
   # GET /props/1
   # GET /props/1.json
   def show
-    @prop = Prop.find(params[:id])
+    @prop = @project.props.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class PropsController < ApplicationController
   # GET /props/new
   # GET /props/new.json
   def new
-    @prop = Prop.new
+    @prop = @project.props.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +36,17 @@ class PropsController < ApplicationController
 
   # GET /props/1/edit
   def edit
-    @prop = Prop.find(params[:id])
+    @prop = @project.props.find(params[:id])
   end
 
   # POST /props
   # POST /props.json
   def create
-    @prop = Prop.new(params[:prop])
+    @prop = @project.props.new(params[:prop])
 
     respond_to do |format|
       if @prop.save
-        format.html { redirect_to @prop, notice: 'Prop was successfully created.' }
+        format.html { redirect_to [@project, @prop], notice: 'Prop was successfully created.' }
         format.json { render json: @prop, status: :created, location: @prop }
       else
         format.html { render action: "new" }
@@ -56,11 +58,11 @@ class PropsController < ApplicationController
   # PUT /props/1
   # PUT /props/1.json
   def update
-    @prop = Prop.find(params[:id])
+    @prop = @project.props.find(params[:id])
 
     respond_to do |format|
       if @prop.update_attributes(params[:prop])
-        format.html { redirect_to @prop, notice: 'Prop was successfully updated.' }
+        format.html { redirect_to [@project, @prop], notice: 'Prop was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,12 +74,19 @@ class PropsController < ApplicationController
   # DELETE /props/1
   # DELETE /props/1.json
   def destroy
-    @prop = Prop.find(params[:id])
+    @prop = @project.props.find(params[:id])
     @prop.destroy
 
     respond_to do |format|
-      format.html { redirect_to props_url }
+      format.html { redirect_to project_props_path(@project) }
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def load_project
+      @project = Project.find(params[:project_id])
+    end
+
 end
