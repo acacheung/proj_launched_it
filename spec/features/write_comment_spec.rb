@@ -25,6 +25,7 @@ describe "writing a comment" do
   #   fill_in 'Codebase url', :with => 'github.com'
   #   fill_in 'Description', :with => 'Yay beautiful app'
   #   click_button 'Create Project'
+  #   click_link 'New Comment'
   #   fill_in 'First name', :with => 'Launch'
   #   fill_in 'Last name', :with => 'Academy'
   #   fill_in 'Email', :with => 'launch@academy.com'
