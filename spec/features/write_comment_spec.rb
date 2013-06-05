@@ -2,7 +2,13 @@ require 'spec_helper'
 
 describe "writing a comment" do
   it 'cannot submit comment without all required fields' do
-    visit '/comments/new'
+    visit '/projects/new'
+    fill_in 'Name', :with => 'Breakable Toy'
+    fill_in 'Url', :with => 'google.com'
+    fill_in 'Codebase url', :with => 'github.com'
+    fill_in 'Description', :with => 'Yay beautiful app'
+    click_button 'Create Project'
+    click_link 'New Comment'
     fill_in 'First name', :with => ''
     fill_in 'Last name', :with => ''
     fill_in 'Email', :with => ''

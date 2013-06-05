@@ -1,0 +1,23 @@
+<h1>Listing props</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project.props.each do |prop| %>
+  <tr>
+    <td><%= prop.project_id %></td>
+    <td><%= link_to 'Show', project_prop_path(@project, prop) %></td>
+    <td><%= link_to 'Edit', edit_project_prop_path(@project, prop) %></td>
+    <td><%= link_to 'Destroy', [@project, prop], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prop', new_project_prop_path(@project) %>
