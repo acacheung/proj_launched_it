@@ -13,7 +13,6 @@ describe "writing a comment" do
     fill_in 'Last name', :with => ''
     fill_in 'Email', :with => ''
     fill_in 'Body', :with => ''
-    fill_in 'Project', :with => ''
     click_button 'Create Comment'
     page.should have_content("can't be blank")
   end
