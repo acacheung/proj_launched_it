@@ -24,8 +24,8 @@
   <b>Contact email:</b>
   <%= @project.contact_email %>
 </p>
-
-<%= render 'show_props' %>
+<%= pluralize(@project.props.size-1,'Prop') %>
+<%= render 'props/form'%>
 
 <%= render 'show_comments' %>
 

@@ -27,7 +27,9 @@ class PropsController < ApplicationController
   # GET /props/new.json
   def new
     @prop = @project.props.new
+    @project = @props.project
 
+    redirect_to
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @prop }
@@ -43,31 +45,8 @@ class PropsController < ApplicationController
   # POST /props.json
   def create
     @prop = @project.props.new(params[:prop])
-
-    respond_to do |format|
-      if @prop.save
-        format.html { redirect_to [@project, @prop], notice: 'Prop was successfully created.' }
-        format.json { render json: @prop, status: :created, location: @prop }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @prop.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /props/1
-  # PUT /props/1.json
-  def update
-    @prop = @project.props.find(params[:id])
-
-    respond_to do |format|
-      if @prop.update_attributes(params[:prop])
-        format.html { redirect_to [@project, @prop], notice: 'Prop was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @prop.errors, status: :unprocessable_entity }
-      end
+    if @prop.save
+      redirect_to project_path(@project), notice: 'Prop was successfully created.' 
     end
   end
 
