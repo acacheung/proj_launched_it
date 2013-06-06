@@ -1,28 +1,24 @@
 <p id="error"><%= flash[:error] %></p>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Codebase url</th>
-    <th>Description</th>
-    <th>Contact email</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <% @projects.each_slice(2) do |projects| %>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= link_to project.name, project %></td>
-    <td><%= link_to project.url, "http://#{project.url}" %></td>
-    <td><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></td>
-    <td><%= project.description %></td>
-    <td><%= mail_to(project.contact_email) %></td>
-    <td><%= link_to 'View Project', project %></td>
-  </tr>
+<div class="row-fluid">
+  <div class="project">    
+    <div>
+        <% projects.each do |project| %>
+          <div class="span6">
+            <h3 class="text-center"><%= link_to project.name, project %></h3>
+            <p class="proj_link"><%= link_to project.url, "http://#{project.url}" %></p>
+            <p class="proj_codebase_link"><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></p>
+            <p class="proj_description"><%= project.description %></p>
+            <p class="proj_creater_email"><%= mail_to(project.contact_email) %></p>
+            <button type="submit" class="btn"><%= link_to 'View Project', project %></button>
+          </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
 <% end %>
-</table>
 
-<br />
 
 <%= link_to 'New Project', new_project_path %>

@@ -1,37 +1,41 @@
-<p id="notice"><%= notice %></p>
-<p id="error"><%= flash[:error] %></p>
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+<div class='project_page'>
+  <p id="notice"><%= notice %></p>
+  <p id="error"><%= flash[:error] %></p>
+  <p class='proj_name'>
+    <p>Name:</p>
+      <h3>
+        <%= @project.name %>
+      </h3>
+    </p>
 
-<p>
-  <b>Url:</b>
-  <%= @project.url %>
-</p>
+  <p>
+    <b>Url:</b>
+    <%= @project.url %>
+  </p>
 
-<p>
-  <b>Codebase url:</b>
-  <%= @project.codebase_url %>
-</p>
+  <p>
+    <b>Codebase url:</b>
+    <%= @project.codebase_url %>
+  </p>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @project.description %>
+  </p>
 
-<p>
-  <b>Contact email:</b>
-  <%= @project.contact_email %>
-</p>
+  <p>
+    <b>Contact email:</b>
+    <%= @project.contact_email %>
+  </p>
 
-<%= render 'show_props' %>
+  <%= render 'show_props' %>
 
-<%= render 'show_comments' %>
+  <%= render 'show_comments' %>
 
-</br>
-</br>
-</br>
+  </br>
+  </br>
+  </br>
 
-<%= link_to 'Edit Project', edit_project_path(@project) %> |
-<%= link_to 'Back to all Projects', projects_path %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+  <%= link_to 'Back to all Projects', projects_path %>
+</div>
