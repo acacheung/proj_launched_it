@@ -2,21 +2,24 @@
       <% @projects.each_slice(2) do |projects| %>
 
 <div class="row-fluid">
-  <div class="project">    
-    <div>
+    
         <% projects.each do |project| %>
-          <div class="span6">
+          <div class="span6 project">
             <h3 class="text-center"><%= link_to project.name, project %></h3>
-            <p class="proj_link"><%= link_to project.url, "http://#{project.url}" %></p>
-            <p class="proj_codebase_link"><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></p>
-            <p class="proj_description"><%= project.description %></p>
+            <p class="text-center"><%= link_to project.url, "http://#{project.url}" %></p>
+            <p class="text-center"><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></p>
+            <div class="text-center">
+              <img src="http://placehold.it/600x300">
+            </div>
+            <div class="content">
+              <p class="proj_description"><%= project.description %></p>
+            </div>
             <p class="proj_creater_email"><%= mail_to(project.contact_email) %></p>
             <button type="submit" class="btn"><%= link_to 'View Project', project %></button>
           </div>
         <% end %>
 
-    </div>
-  </div>
+
 </div>
 <% end %>
 

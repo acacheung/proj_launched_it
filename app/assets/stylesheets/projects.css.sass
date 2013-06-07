@@ -1,14 +1,19 @@
 body
-  background-image: url('http://johnwallacedesigns.com/wp-content/uploads/2013/06/escheresque_ste.png')
-
-.span6 
-  border: 3px solid gray
-  text-align: center
   background-image: url('http://johnwallacedesigns.com/wp-content/uploads/2013/06/squairy_light.png')
 
+.span6 
+  border: 1px solid gray
+  background-color: white
+
+.container
+  width: 900px
+
 .span6 p 
-  padding: 10px
+  padding: 20px
   color: black
+  line-height: 1.5
+  font-size: 20px
+  max-width: 700px
 
 .row-fluid 
   padding-top: 60px
@@ -18,15 +23,16 @@ body
   margin: 20px 0px 10px 10px
 
 .project_page
-  text-align: center
   padding: 5%
-  color: white
+  color: black
 
 .project_page p
   padding: 10px
 
+
 .proj_name p
   font-size: 5em
+  text-align: center
 
 .comments_page
   text-align: center
@@ -38,7 +44,22 @@ body
 .show-comments
   margin-top: 20px
   padding: 20px
-  border: 1px dotted white
+  border: 1px dotted black
 
 .show-comments p
   color: gray
+
+.content
+  max-height: 250px
+  overflow-x: hidden
+  .proj_description
+    max-width: 600px
+    margin: 0 auto
+
+.text-center
+  .proj_link
+    margin: 0 auto
+
+.text-center img
+  padding: 20px 0
+ 
