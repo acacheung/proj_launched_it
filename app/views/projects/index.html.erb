@@ -6,8 +6,8 @@
         <% projects.each do |project| %>
           <div class="span6 project">
             <h3 class="text-center"><%= link_to project.name, project %></h3>
-            <p class="text-center"><%= link_to project.url, "http://#{project.url}" %></p>
-            <p class="text-center"><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></p>
+            <p class="proj-url"><%= link_to project.url, "http://#{project.url}" %></p>
+            <p class="proj-code"><%= link_to project.codebase_url, "http://#{project.codebase_url}" %></p>
             <div class="text-center">
               <img src="http://placehold.it/600x300">
             </div>

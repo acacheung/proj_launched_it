@@ -1,7 +1,8 @@
 <div class='project_page'>
   <p id="notice"><%= notice %></p>
   <p id="error"><%= flash[:error] %></p>
-  <p class='proj_name'>
+  <div class="single-project">
+    <p class='proj_name'>
     <p>Name:</p>
       <h3>
         <%= @project.name %>
@@ -17,7 +18,7 @@
     <b>Codebase url:</b>
     <%= @project.codebase_url %>
   </p>
-
+  <img src="http://placehold.it/600x300">
   <p>
     <b>Description:</b>
     <%= @project.description %>
@@ -35,7 +36,7 @@
   </br>
   </br>
   </br>
-
+</div>
   <%= link_to 'Edit Project', edit_project_path(@project) %> |
   <%= link_to 'Back to all Projects', projects_path %>
 </div>
