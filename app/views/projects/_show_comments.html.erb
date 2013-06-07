@@ -1,12 +1,13 @@
-<h2>Comments</h2>
+<div class="show-comments">
+<h5>Comments</h5>
 
 <% @project.comments.each do |comment| %>
   <div>
-    <h3>
+    <p>
       <%= comment.first_name + ' ' + comment.last_name %>
       <span class='comment-email'>(<%= mail_to(comment.email) %>)</span>
     :
-    </h3>
+    </p>
     <p><%= comment.body %></p>
   </div>
 <% end %>
@@ -14,3 +15,4 @@
 <br />
 
 <%= link_to 'New Comment', new_project_comment_path(@project) %>
+</div>
